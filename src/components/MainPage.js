@@ -1,7 +1,4 @@
-import {react} from 'react';
 import veritas_logo from '../images/veritas_logo.svg';
-import ChatBox from '../components/ChatBox';
-
 
 function title() {
     return (
@@ -11,7 +8,7 @@ function title() {
     );
 }
 
-function mainPage(){
+export default function MainPage(){
     return (
         <div className='vertias-main'>
             <img src={veritas_logo} alt='Veritas Logo' style={{width: '200px', height: '200px'}} className='logo'></img>
@@ -20,13 +17,4 @@ function mainPage(){
             </div>
         </div>
     )
-}
-
-export default function LandingPage() {
-
-    return (
-        <div className='content'>
-            {mainPage()}
-        </div>
-    );
 }

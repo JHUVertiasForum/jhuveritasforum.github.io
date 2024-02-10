@@ -1,16 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 import React from 'react';
-import LandingPage from './pages/landingPage';
+import './App.css';
+import ChatBox from './components/ChatBox.js';
+import MainPage from './components/MainPage.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <LandingPage />
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    showChatbox: false,
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ showChatbox: true });
+    }, 3000); // Change page after 5 seconds
+  }
+
+  render() {
+
+    return (
+      <div className = {this.state.showChatbox ? 'fade-center-active' : 'fade-center'}>
+        {this.state.showChatbox ? <ChatBox /> : <MainPage />}
+      </div>
+    );
+  }
 }
 
 export default App;
