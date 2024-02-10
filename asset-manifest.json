@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/jhu-veritas/react-gh-pages/static/css/main.84e5e0ae.css",
-    "main.js": "/jhu-veritas/react-gh-pages/static/js/main.22f2124c.js",
-    "static/js/787.f237384f.chunk.js": "/jhu-veritas/react-gh-pages/static/js/787.f237384f.chunk.js",
-    "static/media/veritas_logo.svg": "/jhu-veritas/react-gh-pages/static/media/veritas_logo.708e3b772a6413e2dfdd534f6e8919c6.svg",
-    "index.html": "/jhu-veritas/react-gh-pages/index.html",
-    "main.84e5e0ae.css.map": "/jhu-veritas/react-gh-pages/static/css/main.84e5e0ae.css.map",
-    "main.22f2124c.js.map": "/jhu-veritas/react-gh-pages/static/js/main.22f2124c.js.map",
-    "787.f237384f.chunk.js.map": "/jhu-veritas/react-gh-pages/static/js/787.f237384f.chunk.js.map"
+    "main.css": "/static/css/main.84e5e0ae.css",
+    "main.js": "/static/js/main.d1e19471.js",
+    "static/js/787.f237384f.chunk.js": "/static/js/787.f237384f.chunk.js",
+    "static/media/veritas_logo.svg": "/static/media/veritas_logo.708e3b772a6413e2dfdd534f6e8919c6.svg",
+    "index.html": "/index.html",
+    "main.84e5e0ae.css.map": "/static/css/main.84e5e0ae.css.map",
+    "main.d1e19471.js.map": "/static/js/main.d1e19471.js.map",
+    "787.f237384f.chunk.js.map": "/static/js/787.f237384f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84e5e0ae.css",
-    "static/js/main.22f2124c.js"
+    "static/js/main.d1e19471.js"
   ]
 }
