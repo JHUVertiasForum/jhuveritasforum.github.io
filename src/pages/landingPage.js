@@ -1,7 +1,4 @@
-import {react} from 'react';
 import veritas_logo from '../images/veritas_logo.svg';
-import ChatBox from '../components/ChatBox';
-
 
 function title() {
     return (

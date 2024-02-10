@@ -1,5 +1,6 @@
 import {react} from 'react';
 import TimedText from '../components/TimedText.js';
+import InputBox from '../components/InputBox.js';
 
 function seriesOfText() {
 
@@ -15,8 +16,11 @@ function seriesOfText() {
 
 export default function ChatBox() {
     return (
-        <div className='vertias-main'>
-            {seriesOfText()}
+        <div className='vertias-chat'>
+            <div className='text-width' style = {{textAlign: 'left'}}>
+                {seriesOfText()}
+            </div>
+            <InputBox />
         </div>
     );
 }
