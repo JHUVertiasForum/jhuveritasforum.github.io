@@ -136,8 +136,7 @@
   color: white;
   text-align: center;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; /* Change this line */
   padding-top: 20px; /* Optional: add some space at the top */
 }
 
