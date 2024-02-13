@@ -1,29 +1,27 @@
-import veritas_logo from '../images/veritas_logo.svg';
+import React, { useState, useEffect } from 'react';
+import MainPage from '../components/MainPage';
+import ChatBox from '../components/ChatBox';
 
-function title() {
-    return (
-        <div className='playfair'>
-            <p style = {{fontSize: '40px'}}>The Vertias Forum at Johns Hopkins</p>
-        </div>
-    );
+const LandingPage = () => {
+  const [showMainPage, setShowMainPage] = useState(true);
+  const [showChatbox, setShowChatbox] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowMainPage(false);
+
+      setTimeout(() => {
+        setShowChatbox(true);
+      }, 2000); // Wait for the fade-out animation to finish
+    }, 3000); // Change page after 4 seconds (2s for fade-in, 2s for fade-out)
+  }, []); // Empty dependency array means this effect runs once on mount
+
+  return (
+    <div>
+      {showMainPage && <MainPage className="main-page" />}
+      {showChatbox && <ChatBox className="fade-out" />}
+    </div>
+  );
 }
 
-function mainPage(){
-    return (
-        <div className='vertias-main'>
-            <img src={veritas_logo} alt='Veritas Logo' style={{width: '200px', height: '200px'}} className='logo'></img>
-            <div className='title'>
-                {title()}
-            </div>
-        </div>
-    )
-}
-
-export default function LandingPage() {
-
-    return (
-        <div className='content'>
-            {mainPage()}
-        </div>
-    );
-}
+export default LandingPage;

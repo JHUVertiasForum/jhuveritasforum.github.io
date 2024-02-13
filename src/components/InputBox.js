@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function submitText(text) {
-    
+function SubmitText(text, navigate) {
     axios.post('https://sikf2b5a6j.execute-api.us-east-1.amazonaws.com/v1', {
         body: text,
         headers : {
@@ -12,24 +12,22 @@ function submitText(text) {
     })
     .then(function (response) {
         console.log(response);
+        navigate('/responses');
     })
     .catch(function (error) {
         console.log(error);
     });
 }
 
+function InputBox() {
+  const navigate = useNavigate();
 
-class InputBox extends React.Component {
-  // Your existing code here...
-
-  render() {
-    return (
-        <div className='text-width'>
-            <input className="chat-box chatbox-fade-in" type="text" />
-            <button className="submit-button chatbox-fade-in" onClick={() => submitText(document.querySelector('.chat-box').value)}>Submit</button>
-        </div>
-    );
-  }
+  return (
+    <div className='text-width'>
+        <input className="chat-box chatbox-fade-in" type="text" />
+        <button className="submit-button chatbox-fade-in" onClick={() => SubmitText(document.querySelector('.chat-box').value, navigate)}>Submit</button>
+    </div>
+  );
 }
 
 export default InputBox;

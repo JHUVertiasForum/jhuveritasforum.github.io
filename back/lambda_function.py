@@ -28,7 +28,7 @@ def writeToDyanmoDB(data):
 def readFromDynamoDB():
     table = dynamoDB.Table(TABLE_NAME)
     response = table.scan()
-    return str(response['Items'])
+    return (response['Items'])
 
 ###############################################
 # Helper Functions
@@ -36,15 +36,18 @@ def readFromDynamoDB():
 
 def get10RandomMessages():
     messages = readFromDynamoDB()
-    random.shuffle(messages)
+    textOnly = []
+    for message in messages:
+        textOnly.append(message['text'])
 
-    return messages[:10]
+    random.shuffle(textOnly)
+
+    return str(messages[:10]).replace("'", '"')
 
 def lambda_handler(event, context):
 
     print(event)
 
-    body = json.loads(event['body'])
     httpMethod = event['httpMethod']
 
     if httpMethod == 'GET':
@@ -55,7 +58,10 @@ def lambda_handler(event, context):
         }
     
     elif httpMethod == 'POST':
+        body = (event['body'])
+
         return {
+            
             "statusCode": 200,
             "body": writeToDyanmoDB(body),
             "headers": CORS_Header

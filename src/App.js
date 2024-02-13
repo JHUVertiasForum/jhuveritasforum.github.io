@@ -1,30 +1,22 @@
 import React from 'react';
 import './App.css';
-import ChatBox from './components/ChatBox.js';
-import MainPage from './components/MainPage.js';
+import LandingPage from './pages/landingPage.js';
+import Responses from './components/Responses.js';
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
+
 
 class App extends React.Component {
-  state = {
-    showMainPage: true,
-    showChatbox: false,
-  };
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ showMainPage: false });
-
-      setTimeout(() => {
-        this.setState({ showChatbox: true });
-      }, 2000); // Wait for the fade-out animation to finish
-    }, 4000); // Change page after 4 seconds (2s for fade-in, 2s for fade-out)
-  }
 
   render() {
     return (
+      <BrowserRouter>
       <div className='veritas-background'>
-        {this.state.showMainPage && <MainPage className="main-page" />}
-        {this.state.showChatbox && <ChatBox className="fade-out" />}
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/responses" element={<Responses />} />
+        </Routes>
       </div>
+      </BrowserRouter>
     );
   }
 }

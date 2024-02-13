@@ -11,7 +11,7 @@ class TimedText extends React.Component {
         this.setState(prevState => ({
           texts: [...prevState.texts, text],
         }));
-      }, index * 2000); // Change text every 2 seconds
+      }, index * 500); // Change text every .5 seconds
     });
   }
 

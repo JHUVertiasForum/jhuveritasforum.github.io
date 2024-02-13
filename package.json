@@ -1,7 +1,7 @@
 {
   "name": "jhu-vertias",
   "version": "0.1.0",
-  "homepage": "https://jhu-veritas.github.io/jhu-veritas/react-gh-pages",
+  "homepage": "https://jhu-veritas.github.io/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,6 +10,7 @@
     "axios": "^1.6.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
