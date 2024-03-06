@@ -12,13 +12,13 @@ const Responses = () => {
   
       axios.get('https://sikf2b5a6j.execute-api.us-east-1.amazonaws.com/v1', { headers: headers })
         .then(response => {
-          console.log(textResponses)
           const APItext = [];
 
-          console.log(response.data);
           for (let i = 0; i < response.data.length; i++) {
-            APItext.push(response.data[i].text);
+            APItext.push(response.data[i]);
           }
+
+          console.log("APItext: ", APItext);
           
           setTextResponses(APItext);
           setLoading(false); // Set loading to false when the API call is finished

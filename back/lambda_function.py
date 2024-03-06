@@ -20,7 +20,8 @@ def writeToDyanmoDB(data):
     table = dynamoDB.Table(TABLE_NAME)
     response = table.put_item(
         Item={
-            'text': data
+            'text': data,
+            'approved': False
         }
     )
     return str(response)
@@ -38,10 +39,20 @@ def get10RandomMessages():
     messages = readFromDynamoDB()
     textOnly = []
     for message in messages:
-        textOnly.append(message['text'])
+        if message['approved'] == True:
+            textOnly.append(message['text'])
 
+    # Case 1; No messages to display
+    if len(textOnly) == 0:
+        print("No messages to display")
+        return str(["No messages to display"])
+    # Case 2; Less than 10 messages to display
+    if len(textOnly) < 10:
+        print("Less than 10 messages to display")
+        return str(textOnly).replace("'", '"')
+
+    # Case 3; More than 10 messages to display
     random.shuffle(textOnly)
-
     return str(messages[:10]).replace("'", '"')
 
 def lambda_handler(event, context):
@@ -58,7 +69,7 @@ def lambda_handler(event, context):
         }
     
     elif httpMethod == 'POST':
-        body = (event['body'])
+        body = json.loads(event['body'])['body']
 
         return {
             
