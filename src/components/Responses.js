@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const Responses = () => {
     const [textResponses, setTextResponses] = useState([]);
@@ -17,8 +18,6 @@ const Responses = () => {
           for (let i = 0; i < response.data.length; i++) {
             APItext.push(response.data[i]);
           }
-
-          console.log("APItext: ", APItext);
           
           setTextResponses(APItext);
           setLoading(false); // Set loading to false when the API call is finished
@@ -39,6 +38,7 @@ const Responses = () => {
             <div key={index} className="speech-bubble">{text}</div>
           ))
         )}
+        <a href="https://www.jhuveritas.com/main.html"><button>Veritas Main Page</button></a>
       </div>
     );
   }
